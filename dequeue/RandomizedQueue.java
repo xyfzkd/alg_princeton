@@ -34,6 +34,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // add the item
     public void enqueue(Item item) {
+        if (item == null) throw new IllegalArgumentException();
         Node<Item> oldlast = last;
         last = new Node<Item>();
         last.item = item;
@@ -45,6 +46,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // remove and return a random item
     public Item dequeue() {
+        if (isEmpty()) throw new NoSuchElementException("RandomizedQueue underflow");
         int rand = StdRandom.uniform(n--);
         if (rand == 0) {
             Item item = first.item;
@@ -69,6 +71,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // return a random item (but do not remove it)
     public Item sample() {
+        if (isEmpty()) throw new NoSuchElementException("RandomizedQueue underflow");
         int rand = StdRandom.uniform(n);
         Node<Item> p = first;
         for (int i = 0; i < rand; i++)

@@ -10,13 +10,10 @@ public class Permutation {
         }
         String item;
 
-        Deque<String> d = new Deque<String>();
+
         for (int i = Integer.parseInt(args[0]); i != 0; i--) {
             item = q.dequeue();
-            d.addLast(item);
-        }
-        for (String s : d) {
-            System.out.println(s);
+            System.out.println(item);
         }
     }
 }
